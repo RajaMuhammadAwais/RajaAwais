@@ -25,8 +25,6 @@ import {
 import './App.css'
 import cyberpunkCityBg from './assets/cyberpunk-city-night-lights-yyli97fabab54h02.jpg'
 import cyberpunkCursor from './assets/cyberpunk-cursor.png'
-import image1 from './assets/image1.png'
-import image2 from './assets/image2.png'
 
 
 function App() {
@@ -250,8 +248,18 @@ function App() {
                 My passion is to apply my skills to real-world challenges, helping organizations build secure, efficient, and scalable systems.
               </p>
               <div className="about-images-cyberpunk">
-                <img src="/assets/devops_reference.jpg" alt="DevOps Reference" className="cyberpunk-img neon-border" />
-                <img src="/assets/robotics_reference.jpg" alt="Robotics Reference" className="cyberpunk-img neon-border" />
+                <img 
+                  src="/assets/devops_reference.jpg" 
+                  alt="DevOps Reference" 
+                  className="cyberpunk-img neon-border" 
+                  onError={e => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/300x200?text=Image+Not+Found'; }}
+                />
+                <img 
+                  src="/assets/robotics_reference.jpg" 
+                  alt="Robotics Reference" 
+                  className="cyberpunk-img neon-border" 
+                  onError={e => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/300x200?text=Image+Not+Found'; }}
+                />
               </div>
             </div>
             <Card className="cyber-card">
