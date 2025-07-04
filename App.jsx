@@ -157,8 +157,22 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="cyberpunk-bg-anim"></div>
+    <div className="min-h-screen bg-background text-foreground relative">
+      {/* --- CYBERPUNK OVERLAYS & ANIMATIONS --- */}
+      <div className="cyberpunk-bg-anim" />
+      <div className="cyberpunk-circuit-overlay" />
+      <div className="cyberpunk-grit-overlay" />
+      {/* Animated neon lines (circuit effect) */}
+      <div className="cyberpunk-anim-line" style={{ top: '15vh' }} />
+      <div className="cyberpunk-anim-line" style={{ top: '40vh', animationDelay: '2s' }} />
+      <div className="cyberpunk-anim-line" style={{ top: '70vh', animationDelay: '4s' }} />
+      {/* Abstract data viz dots */}
+      <div className="cyberpunk-dataviz-dots">
+        <span className="cyberpunk-dataviz-dot" />
+        <span className="cyberpunk-dataviz-dot" style={{ animationDelay: '0.4s' }} />
+        <span className="cyberpunk-dataviz-dot" style={{ animationDelay: '0.8s' }} />
+      </div>
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 py-4">
