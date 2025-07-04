@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy from subfolder
 
 on:
   push:
@@ -6,39 +6,32 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js 20 with npm cache
-        uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          node-version: 20
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-      - name: Check for outdated dependencies (optional)
-        run: npm outdated || true
-      # Uncomment the next step if you have tests
-      # - name: Run tests
-      #   run: npm test
-      - name: Build project
-        run: npm run build
-      - name: List dist contents for debug
-        run: |
-          echo "Listing dist directory contents:"
-          ls -l dist
-          echo "Listing dist/assets directory contents:"
-          ls -l dist/assets || echo "No assets directory"
+          path: awais_portfolio  # 👈 point to your subdirectory
+
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-      - name: Show deployed URL
-        run: |
-          echo "Your site is live at: https://rajamuhammadawais.github.io/RajaAwais/"
+        id: deployment
+        uses: actions/deploy-pages@v4
