@@ -24,6 +24,7 @@ import {
 } from 'lucide-react'
 import './App.css'
 import cyberpunkCityBg from './assets/cyberpunk-city-night-lights-yyli97fabab54h02.jpg'
+import cyberpunkCursor from './assets/cyberpunk-cursor.png'
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
     if (!cyberCursor) {
       cyberCursor = document.createElement('img');
       cyberCursor.id = 'cyberpunk-cursor';
-      cyberCursor.src = 'assets/cyberpunk-cursor.png';
+      cyberCursor.src = cyberpunkCursor;
       cyberCursor.style.position = 'fixed';
       cyberCursor.style.pointerEvents = 'none';
       cyberCursor.style.zIndex = '9999';
@@ -187,7 +188,7 @@ function App() {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 glitch-effect neon-text-blue" data-text="Raja Muhammad Awais">
             Raja Muhammad Awais
           </h1>
-          <h2 className="text-2xl md:text-4xl font-semibold mb-6 neon-text-pink">
+          <h2 className="text-2xl md:text-4xl font-semibold mb-6 neon-text-pink animate-bounce">
             DevOps Engineer
           </h2>
           <p className="text-lg md:text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
