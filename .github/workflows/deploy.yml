@@ -24,6 +24,12 @@ jobs:
       #   run: npm test
       - name: Build project
         run: npm run build
+      - name: List dist contents for debug
+        run: |
+          echo "Listing dist directory contents:"
+          ls -l dist
+          echo "Listing dist/assets directory contents:"
+          ls -l dist/assets || echo "No assets directory"
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
