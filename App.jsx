@@ -23,7 +23,7 @@ import {
   Network
 } from 'lucide-react'
 import './App.css'
-import cyberpunkCityBg from './assets/cyberpunk-city-bg.jpg'
+import cyberpunkCityBg from './assets/cyberpunk-city-night-lights-yyli97fabab54h02.jpg'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
