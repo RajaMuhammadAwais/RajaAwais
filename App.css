@@ -218,11 +218,28 @@ a, button, input, textarea {
     transform: scale(1.05) skewX(-5deg);
   }
   
-  .cyber-card {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', 'Share Tech Mono', 'monospace', 'sans-serif';
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  h1.glitch-effect, h2.glitch-effect {
+    background: linear-gradient(90deg, #00ffe7 0%, #ff00cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px #00ffe7) drop-shadow(0 0 16px #ff00cc);
+  }
+
+  .card, .cyber-card {
+    background: linear-gradient(135deg, rgba(18, 18, 42, 0.95) 60%, rgba(0,255,231,0.08) 100%);
     border: 2px solid #ff00cc;
     box-shadow: 0 0 16px #ff00cc, 0 0 32px #00ffe7;
-    background: rgba(18, 18, 42, 0.95);
-    font-family: 'Share Tech Mono', 'monospace';
+    margin: 2rem auto;
+    max-width: 95vw;
   }
 }
 
