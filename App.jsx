@@ -174,18 +174,18 @@ function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <div className="text-xl font-bold neon-text-blue">Raja Muhammad Awais</div>
-            <div className="hidden md:flex space-x-6">
-              {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Research', 'Certifications', 'DevOps'].map((item) => (
+      <nav className="fixed top-0 left-1/2 transform -translate-x-1/2 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border flex justify-center">
+        <div className="flex flex-col items-center w-full">
+          <div className="flex flex-col items-center w-full">
+            <div className="flex flex-row justify-center items-center gap-6 mt-4 animate-fade-in-down">
+              {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Research', 'Certifications', 'DevOps'].map((item, idx) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                  className={`text-sm transition-colors hover:text-primary ${
-                    activeSection === item.toLowerCase().replace(' ', '-') ? 'text-primary neon-glow' : 'text-muted-foreground'
-                  }`}
+                  className={`cyberpunk-nav-link neon-glow transition-all duration-300 relative animate-nav-glow${activeSection === item.toLowerCase().replace(' ', '-') ? ' neon-text-blue' : ''}`}
+                  style={{
+                    animationDelay: `${0.1 * idx}s`,
+                  }}
                 >
                   {item}
                 </button>
