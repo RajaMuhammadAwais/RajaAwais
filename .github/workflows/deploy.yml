@@ -24,13 +24,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
+
       - name: Set up GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: awais_portfolio  # 👈 point to your subdirectory
+          path: dist  # 👈 point to your build output directory
 
       - name: Deploy to GitHub Pages
         id: deployment
