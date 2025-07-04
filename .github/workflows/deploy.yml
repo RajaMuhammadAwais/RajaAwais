@@ -39,3 +39,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+      - name: Show deployed URL
+        run: |
+          echo "Your site is live at: https://rajamuhammadawais.github.io/RajaAwais/"
