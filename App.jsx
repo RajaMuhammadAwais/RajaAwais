@@ -23,7 +23,7 @@ import {
   Network
 } from 'lucide-react'
 import './App.css'
-import cyberpunkCityBg from './assets/cyberpunk-city-bg.jpg'
+import cyberpunkCityBg from "./assets/cyberpunk-city-night-lights-yyli97fabab54h02.jpg"
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -143,11 +143,7 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${cyberpunkCityBg})` }}
-        />
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundImage: `url(${cyberpunkCityBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 cyber-grid opacity-30" />
         
