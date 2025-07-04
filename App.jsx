@@ -23,43 +23,10 @@ import {
   Network
 } from 'lucide-react'
 import './App.css'
-import cyberpunkCityBg from './assets/cyberpunk-city-night-lights-yyli97fabab54h02.jpg'
-import cyberpunkCursor from './assets/cyberpunk-cursor.png'
-
+import cyberpunkCityBg from './assets/cyberpunk-city-bg.jpg'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
-
-  // Cyberpunk cursor effect
-  useEffect(() => {
-    // Hide default cursor
-    document.body.style.cursor = 'none';
-    // Create cursor element if not exists
-    let cyberCursor = document.getElementById('cyberpunk-cursor');
-    if (!cyberCursor) {
-      cyberCursor = document.createElement('img');
-      cyberCursor.id = 'cyberpunk-cursor';
-      cyberCursor.src = cyberpunkCursor;
-      cyberCursor.style.position = 'fixed';
-      cyberCursor.style.pointerEvents = 'none';
-      cyberCursor.style.zIndex = '9999';
-      cyberCursor.style.width = '32px';
-      cyberCursor.style.height = '32px';
-      cyberCursor.style.transform = 'translate(-50%, -50%)';
-      cyberCursor.style.transition = 'none'; // instant movement
-      document.body.appendChild(cyberCursor);
-    }
-    const moveCursor = (e) => {
-      cyberCursor.style.left = e.clientX + 'px';
-      cyberCursor.style.top = e.clientY + 'px';
-    };
-    window.addEventListener('mousemove', moveCursor);
-    return () => {
-      window.removeEventListener('mousemove', moveCursor);
-      if (cyberCursor) cyberCursor.remove();
-      document.body.style.cursor = '';
-    };
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,11 +79,6 @@ function App() {
       { name: "Bash", icon: <Terminal className="w-4 h-4" /> },
       { name: "Shell Scripting", icon: <Terminal className="w-4 h-4" /> }
     ],
-    "AI & Machine Learning": [
-      { name: "AI/ML Concepts", icon: <Cpu className="w-4 h-4" /> },
-      { name: "Deep Learning", icon: <Cpu className="w-4 h-4" /> },
-      { name: "Data Science", icon: <Database className="w-4 h-4" /> }
-    ],
     "Networking & Security": [
       { name: "Deep Packet Inspection (DPI)", icon: <Shield className="w-4 h-4" /> },
       { name: "NDPI", icon: <Network className="w-4 h-4" /> },
@@ -157,35 +119,20 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative">
-      {/* --- CYBERPUNK OVERLAYS & ANIMATIONS --- */}
-      <div className="cyberpunk-bg-anim" />
-      <div className="cyberpunk-circuit-overlay" />
-      <div className="cyberpunk-grit-overlay" />
-      {/* Animated neon lines (circuit effect) */}
-      <div className="cyberpunk-anim-line" style={{ top: '15vh' }} />
-      <div className="cyberpunk-anim-line" style={{ top: '40vh', animationDelay: '2s' }} />
-      <div className="cyberpunk-anim-line" style={{ top: '70vh', animationDelay: '4s' }} />
-      {/* Abstract data viz dots */}
-      <div className="cyberpunk-dataviz-dots">
-        <span className="cyberpunk-dataviz-dot" />
-        <span className="cyberpunk-dataviz-dot" style={{ animationDelay: '0.4s' }} />
-        <span className="cyberpunk-dataviz-dot" style={{ animationDelay: '0.8s' }} />
-      </div>
-
+    <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="fixed top-0 left-1/2 transform -translate-x-1/2 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border flex justify-center">
-        <div className="flex flex-col items-center w-full">
-          <div className="flex flex-col items-center w-full">
-            <div className="flex flex-row justify-center items-center gap-6 mt-4 animate-fade-in-down">
-              {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Research', 'Certifications', 'DevOps'].map((item, idx) => (
+      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            <div className="text-xl font-bold neon-text-blue">Raja Muhammad Awais</div>
+            <div className="hidden md:flex space-x-6">
+              {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Research', 'Certifications', 'DevOps'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                  className={`cyberpunk-nav-link neon-glow transition-all duration-300 relative animate-nav-glow${activeSection === item.toLowerCase().replace(' ', '-') ? ' neon-text-blue' : ''}`}
-                  style={{
-                    animationDelay: `${0.1 * idx}s`,
-                  }}
+                  className={`text-sm transition-colors hover:text-primary ${
+                    activeSection === item.toLowerCase().replace(' ', '-') ? 'text-primary neon-glow' : 'text-muted-foreground'
+                  }`}
                 >
                   {item}
                 </button>
@@ -208,7 +155,7 @@ function App() {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 glitch-effect neon-text-blue" data-text="Raja Muhammad Awais">
             Raja Muhammad Awais
           </h1>
-          <h2 className="text-2xl md:text-4xl font-semibold mb-6 neon-text-pink animate-bounce">
+          <h2 className="text-2xl md:text-4xl font-semibold mb-6 neon-text-pink">
             DevOps Engineer
           </h2>
           <p className="text-lg md:text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
@@ -247,20 +194,6 @@ function App() {
                 I have contributed to research with M.Phil students on Deep Packet Inspection and Network Traffic Identification. 
                 My passion is to apply my skills to real-world challenges, helping organizations build secure, efficient, and scalable systems.
               </p>
-              <div className="about-images-cyberpunk">
-                <img 
-                  src="/assets/devops_reference.jpg" 
-                  alt="DevOps Reference" 
-                  className="cyberpunk-img neon-border" 
-                  onError={e => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/300x200?text=Image+Not+Found'; }}
-                />
-                <img 
-                  src="/assets/robotics_reference.jpg" 
-                  alt="Robotics Reference" 
-                  className="cyberpunk-img neon-border" 
-                  onError={e => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/300x200?text=Image+Not+Found'; }}
-                />
-              </div>
             </div>
             <Card className="cyber-card">
               <CardHeader>
