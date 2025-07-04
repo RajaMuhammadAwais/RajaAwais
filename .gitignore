@@ -31,5 +31,4 @@ yarn.lock
 pnpm-lock.yaml
 
 # Ignore HTML and CSS files at the root (optional, remove if you want to keep them tracked)
-App.css
-index.html
+
