@@ -250,8 +250,8 @@ function App() {
                 My passion is to apply my skills to real-world challenges, helping organizations build secure, efficient, and scalable systems.
               </p>
               <div className="about-images-cyberpunk">
-                <img src={image1} alt="About visual 1" />
-                <img src={image2} alt="About visual 2" />
+                <img src={require('./assets/devops_reference.jpg')} alt="DevOps Reference" className="cyberpunk-img neon-border" />
+                <img src={require('./assets/robotics_reference.jpg')} alt="Robotics Reference" className="cyberpunk-img neon-border" />
               </div>
             </div>
             <Card className="cyber-card">
