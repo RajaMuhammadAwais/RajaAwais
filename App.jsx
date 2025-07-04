@@ -25,6 +25,8 @@ import {
 import './App.css'
 import cyberpunkCityBg from './assets/cyberpunk-city-night-lights-yyli97fabab54h02.jpg'
 import cyberpunkCursor from './assets/cyberpunk-cursor.png'
+import image1 from './assets/image1.png'
+import image2 from './assets/image2.png'
 
 
 function App() {
@@ -247,6 +249,10 @@ function App() {
                 I have contributed to research with M.Phil students on Deep Packet Inspection and Network Traffic Identification. 
                 My passion is to apply my skills to real-world challenges, helping organizations build secure, efficient, and scalable systems.
               </p>
+              <div className="about-images-cyberpunk">
+                <img src={image1} alt="About visual 1" />
+                <img src={image2} alt="About visual 2" />
+              </div>
             </div>
             <Card className="cyber-card">
               <CardHeader>
