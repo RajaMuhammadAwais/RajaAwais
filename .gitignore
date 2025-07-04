@@ -34,3 +34,5 @@ pnpm-lock.yaml
 # index.html
 # App.css
 
+import cyberpunkCursor from './assets/cyberpunk-cursor.png.png';
+
