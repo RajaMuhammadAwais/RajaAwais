@@ -112,6 +112,11 @@ function App() {
       { name: "Bash", icon: <Terminal className="w-4 h-4" /> },
       { name: "Shell Scripting", icon: <Terminal className="w-4 h-4" /> }
     ],
+    "AI & Machine Learning": [
+      { name: "AI/ML Concepts", icon: <Cpu className="w-4 h-4" /> },
+      { name: "Deep Learning", icon: <Cpu className="w-4 h-4" /> },
+      { name: "Data Science", icon: <Database className="w-4 h-4" /> }
+    ],
     "Networking & Security": [
       { name: "Deep Packet Inspection (DPI)", icon: <Shield className="w-4 h-4" /> },
       { name: "NDPI", icon: <Network className="w-4 h-4" /> },
@@ -153,6 +158,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <div className="cyberpunk-bg-anim"></div>
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 py-4">
