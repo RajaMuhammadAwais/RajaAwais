@@ -1,3 +1,12 @@
+/* Cyberpunk-style cursor */
+body, html {
+  cursor: url('assets/cyberpunk-cursor.png'), auto;
+}
+
+/* Optional: Add a fallback for interactive elements */
+a, button, input, textarea {
+  cursor: url('assets/cyberpunk-cursor.png'), pointer;
+}
 @import "tailwindcss";
 @import "tw-animate-css";
 

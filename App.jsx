@@ -25,8 +25,40 @@ import {
 import './App.css'
 import cyberpunkCityBg from './assets/cyberpunk-city-night-lights-yyli97fabab54h02.jpg'
 
+
 function App() {
   const [activeSection, setActiveSection] = useState('home')
+
+  // Cyberpunk cursor effect
+  useEffect(() => {
+    // Hide default cursor
+    document.body.style.cursor = 'none';
+    // Create cursor element if not exists
+    let cyberCursor = document.getElementById('cyberpunk-cursor');
+    if (!cyberCursor) {
+      cyberCursor = document.createElement('img');
+      cyberCursor.id = 'cyberpunk-cursor';
+      cyberCursor.src = 'assets/cyberpunk-cursor.png';
+      cyberCursor.style.position = 'fixed';
+      cyberCursor.style.pointerEvents = 'none';
+      cyberCursor.style.zIndex = '9999';
+      cyberCursor.style.width = '32px';
+      cyberCursor.style.height = '32px';
+      cyberCursor.style.transform = 'translate(-50%, -50%)';
+      cyberCursor.style.transition = 'none'; // instant movement
+      document.body.appendChild(cyberCursor);
+    }
+    const moveCursor = (e) => {
+      cyberCursor.style.left = e.clientX + 'px';
+      cyberCursor.style.top = e.clientY + 'px';
+    };
+    window.addEventListener('mousemove', moveCursor);
+    return () => {
+      window.removeEventListener('mousemove', moveCursor);
+      if (cyberCursor) cyberCursor.remove();
+      document.body.style.cursor = '';
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
